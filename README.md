@@ -1,5 +1,6 @@
 # ***Reconhecimento Facial***
 
-O projeto de Reconhecimento Facial foi desenvolvido pelos alunos Adriel Antunes, Iuri Zimmermann, Matheus Sena e Oliver Alexander.
+O projeto de Reconhecimento Facial foi desenvolvido pelos alunos do Instituto Federal de Santa Catarina - Campus Gaspar
+> Adriel Antunes | Iuri Zimmermann | Matheus Sena | Oliver Alexander
 
 ![Imagem](https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/download.jpg)
