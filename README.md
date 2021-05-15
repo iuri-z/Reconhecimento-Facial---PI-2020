@@ -7,7 +7,7 @@ O projeto integrador para o Instituto Federal de Santa Catarina - Campus Gaspar 
 **Python**(*https://www.python.org/*)  
 **OpenCV**(*https://opencv.org/*)  
 
-## ✅ Objetivos já alcançados
+## ✅ Objetivos Alcançados
 **12.05.2021**  
 ✔ Implementação de um menu
 
