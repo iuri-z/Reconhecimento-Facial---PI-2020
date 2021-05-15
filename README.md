@@ -1,6 +1,13 @@
 # ***Reconhecimento Facial***
 
-O projeto integrador para o Instituto Federal de Santa Catarina - Campus Gaspar ***Reconhecimento Facial*** foi desenvolvido pelos alunos:
-> Adriel Antunes, Iuri Zimmermann, Matheus Sena e Oliver Alexander do 
+## ✍ Descrição
+O projeto integrador para o Instituto Federal de Santa Catarina - Campus Gaspar ***Reconhecimento Facial*** foi desenvolvido pelos alunos: *Adriel Antunes, Iuri Zimmermann, Matheus Sena e Oliver Alexander*. 
 
-![Imagem](https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/bannerGIT_v1.png)
+## 🛠 Técnologias Utilizadas
+**Python**(*https://www.python.org/*)  
+**OpenCV**(*https://opencv.org/*)  
+
+## ✅ Objetivos já alcançados
+**12.05.2021**  
+✔ Implementação de um menu
+
