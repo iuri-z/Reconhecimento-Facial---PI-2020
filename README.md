@@ -1,6 +1,6 @@
 # *Projeto Integrador* - ***Reconhecimento Facial***
 
-###### Técnologias Utilizadas
+## Técnologias Utilizadas
 Este foi desenvolvido através das seguintes técnologias
 > Python
 > OpenCV
