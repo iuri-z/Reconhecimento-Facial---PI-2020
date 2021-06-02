@@ -3,13 +3,13 @@ from tkinter import *
 import os
 
 
-#criando a tela
+#Criando a tela
 root = Tk(className='Reconhecimento Facial - Tela Inicial')
 canvas = Canvas(root, width=400, height=400)
 canvas.grid(columnspan=5,rowspan=9)
 
 
-#funções
+#Criando as funções para cada botão
 def onBotIniciar():
 	os.system('python camera.py')
 
@@ -20,17 +20,17 @@ def onBotSair():
 	quit()
 
 
-#criando os botões
+#Criando os botões 'Iniciar', 'Configurações' e 'Sair'
 bot1 = Button(root, text="Iniciar", font="Stark", borderwidth=0,	width=15, command=onBotIniciar) 
 bot2 = Button(root, text="Configurações", font="Stark", borderwidth=0, width=15, command=onBotConfig) 
 bot3 = Button(root, text="Sair", font="Stark", borderwidth=0, width=15, command=onBotSair)
 
 	
-#colocando na tela
+#Posicionando os botões na tela
 bot1.grid(row=3, column=2)
 bot2.grid(row=4, column=2)
 bot3.grid(row=5, column=2)
 
 
-#rodando o software
+#Rodando o software
 root.mainloop()
