@@ -1,7 +1,7 @@
 # ***Reconhecimento Facial***
 
 ## ✍ Descrição
-
+![](https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/Banner/cap_1.png)
 
 ## 🛠 Técnologias Utilizadas
 **Python**  
