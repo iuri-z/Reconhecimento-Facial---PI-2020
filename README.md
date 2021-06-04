@@ -4,7 +4,7 @@
 
 
 ## 💽 Prévia
-<img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/cap_1.png" width="480" height="360" />
+<img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/cap_1.png"/>
 
 ## 🛠 Técnologias Utilizadas 
 |||
