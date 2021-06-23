@@ -10,6 +10,8 @@ root.resizable(0,0)
 canvas = Canvas(root, width=600, height=600)
 canvas.grid(columnspan=5,rowspan=16)
 
+icon = PhotoImage(file='Imagens/logoPI_v5.png')
+root.iconphoto(False, icon)
 
 #Criando as funções para cada botão
 def onBotIniciar():
@@ -21,8 +23,6 @@ def onBotConfig():
 def onBotSair():
 	quit()
 
-icon = PhotoImage(file='Imagens/logoPI_v5.png')
-root.iconphoto(False, icon)
 
 #Criando os botões 'Iniciar', 'Configurações' e 'Sair'
 bot1 = Button(root, text="Iniciar", borderwidth=0, height=2, width=15, fg="white", bg="black", font=('Raleway', 10, 'bold'), command=onBotIniciar) 
