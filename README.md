@@ -9,9 +9,7 @@
 > Oliver Alexander
 
 ## 📖 Prévia
-Logo
-> <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/logoPI_v6.png"/>
-<img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/cap_1.png"/>
+> <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/cap_1.png"/>
 
 ## ✏ Técnologias Utilizadas 
 |||
@@ -24,4 +22,4 @@ Logo
 | :------- | :--- | :--- |
 | Implementação de um menu | 12.05.2021 | ✔ |
 | Integração do FaceMaskDetection ao menu | 04.06.2021 | ✔ |
-
+| Estilização do menu | 23.06.2021 | ✔ |
