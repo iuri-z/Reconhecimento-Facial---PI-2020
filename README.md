@@ -9,6 +9,8 @@
 > Oliver Alexander
 
 ## 📖 Prévia
+Logo
+> <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/logoPI_v6.png"/>
 <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/cap_1.png"/>
 
 ## ✏ Técnologias Utilizadas 
