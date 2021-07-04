@@ -15,7 +15,28 @@
 |||
 | :------- | :--- |
 | Python | https://www.python.org/ |
-| OpenCV | https://opencv.org/ |
+| OpenCV | https://opencv.org/ |  
+
+
+## 📝 Instalação e Funcionamento
+01. Baixe o software & Move o até a área de trabalho
+```
+git clone https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial.git
+```
+
+02. Instalação do requisitos necessários
+```
+cd Desktop
+cd Projeto-Integrador-Reconhecimento-Facial  
+pip3 install -r requisitos.txt  
+```
+
+03. Rodando o software  
+```
+cd Desktop  
+cd Projeto-Integrador-Reconhecimento-Facial  
+python telaInicial.py  
+```
 
 ## ✔ Objetivos Alcançados
 | Objetivos | Data | Status |
