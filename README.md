@@ -24,7 +24,7 @@
 git clone https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial.git
 ```
 
-02. Instalação do requisitos necessários
+02. Instalação dos requisitos necessários
 ```
 cd Desktop
 cd Projeto-Integrador-Reconhecimento-Facial  
