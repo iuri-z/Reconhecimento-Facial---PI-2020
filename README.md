@@ -19,7 +19,7 @@
 
 
 ## 📝 Instalação e Funcionamento
-01. Baixe o software & Move o até a área de trabalho
+01. Baixe o software e coloque na área de trabalho
 ```
 git clone https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial.git
 ```
