@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 from tkinter import *
 import os
 
@@ -15,6 +15,15 @@ def onBotVoltar():
 def onBotSalvar():
     quit()
 
+def mouseEmcimaA(e):
+    botVoltar['background'] = 'gray'
+
+def mouseEmcimaB(e):
+    botSalvar['background'] = 'gray'
+
+def mouseFora(e):
+    botVoltar['background'] = 'black'
+    botSalvar['background'] = 'black'
 
 #criando botões e textos
 botVoltar = Button(root, text='Voltar', font=('Raleway', 10, 'bold'), fg="white", bg="black", borderwidth=0, width=15, command=onBotVoltar)
@@ -35,6 +44,12 @@ checkImg = Checkbutton(root, text="Visual", font=('Raleway', 10), variable=varDo
 #posicionando botões e textos
 botVoltar.grid(row=16, column=1)
 botSalvar.grid(row=16, column=2)
+
+botVoltar.bind("<Enter>", mouseEmcimaA)
+botSalvar.bind("<Enter>", mouseEmcimaB)
+
+botVoltar.bind("<Leave>", mouseFora)
+botSalvar.bind("<Leave>", mouseFora)
 
 labConfig.grid(row=2, column=1)
 labVolume.grid(row=4, column=1)
