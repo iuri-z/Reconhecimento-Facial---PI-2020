@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 from tkinter import *
 import os
 from PIL import ImageTk, Image
@@ -15,14 +15,28 @@ root.iconphoto(False, icon)
 
 #Criando as funções para cada botão
 def onBotIniciar():
-	os.system('python detect_mask_video.py')
+    os.system('python detect_mask_video.py')
 
 def onBotConfig():
-	os.system('python telaConfig.py')
+    os.system('python telaConfig.py')
 
 def onBotSair():
-	quit()
+    quit()
 
+#Criando funções para o botão mudar de cor quando o mouse passar em cima
+def mouseEmcimaA(e):
+    bot1['background'] = 'gray'
+
+def mouseEmcimaB(e):
+    bot2['background'] = 'gray'
+
+def mouseEmcimaC(e):
+    bot3['background'] = 'gray'
+
+def mouseFora(e):
+    bot1['background'] = 'black'
+    bot2['background'] = 'black'
+    bot3['background'] = 'black'
 
 #Criando os botões 'Iniciar', 'Configurações' e 'Sair'
 bot1 = Button(root, text="Iniciar", borderwidth=0, height=2, width=15, fg="white", bg="black", font=('Raleway', 10, 'bold'), command=onBotIniciar) 
@@ -41,6 +55,14 @@ logo.grid(row=3,column=2)
 bot1.grid(row=7, column=2)
 bot2.grid(row=8, column=2)
 bot3.grid(row=9, column=2)
+
+bot1.bind("<Enter>", mouseEmcimaA)
+bot2.bind("<Enter>", mouseEmcimaB)
+bot3.bind("<Enter>", mouseEmcimaC)
+
+bot1.bind("<Leave>", mouseFora)
+bot2.bind("<Leave>", mouseFora)
+bot3.bind("<Leave>", mouseFora)
 
 #Rodando o software
 root.mainloop()
