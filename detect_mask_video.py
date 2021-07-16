@@ -13,6 +13,7 @@ import time
 import cv2
 import os
 import pygame
+import popUpMessage
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
 	# grab the dimensions of the frame and then construct a blob
@@ -103,8 +104,20 @@ print("[INFO] starting video stream...")
 vs = VideoStream(src=0).start()
 time.sleep(2.0)
 
+#variavel auxiliar para congelar o tempo
+congelaTempo = False
+
+#Chamamos a mensagem
+popUpMessage.callme()
+
 # loop over the frames from the video stream
 while True:
+
+	#Mecanismo para adicionar tempo entre cada alerta sonoro
+	if not congelaTempo:
+		tempo = time.time() + 3
+		congelaTempo = True
+
 	# grab the frame from the threaded video stream and resize it
 	# to have a maximum width of 400 pixels
 	frame = vs.read()
@@ -126,10 +139,15 @@ while True:
 		label = "Mask" if mask > withoutMask else "No Mask"
 		color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
 		
-		if label == "Mask":
-			pygame.mixer.init()
+		tempoAtual = time.time()
+		
+		#Implementando o alerta sonoro
+		if label == "Mask" and tempoAtual > tempo: 
+			pygame.mixer.init() #aqui é onde inicializa o mixer
 			pygame.mixer.music.load("AlertaSonoro.mp3")
 			pygame.mixer.music.play(loops = 0)
+			#
+			congelaTempo = False
 		
 		# include the probability in the label
 		label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
@@ -147,7 +165,7 @@ while True:
 	# if the `q` key was pressed, break from the loop
 	if key == ord("q"):
 		break
-
+	
 # do a bit of cleanup
 cv2.destroyAllWindows()
 vs.stop()
