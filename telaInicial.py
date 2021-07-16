@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 from tkinter import *
 from tkinter import messagebox
 import os
@@ -16,18 +16,18 @@ root.iconphoto(False, icon)
 
 #Criando as funções para cada botão
 def onBotIniciar():
-	os.system('python detect_mask_video.py')
+    os.system('python detect_mask_video.py')
 
 def onBotConfig():
-	os.system('python telaConfig.py')
+    os.system('python telaConfig.py')
 
 def onBotSair():
-	quit()
+    quit()
 
 #Criando funções para o botão mudar de cor quando o mouse passar em cima
 def mouseEmcimaA(e):
     bot1['background'] = 'gray'
-    
+
 def mouseEmcimaB(e):
     bot2['background'] = 'gray'
 
