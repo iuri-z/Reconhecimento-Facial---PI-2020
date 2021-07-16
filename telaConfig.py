@@ -1,12 +1,16 @@
 # -- coding: utf-8 --
 from tkinter import *
 import os
+import pygame
 
 #criando a tela
 root = Tk(className=' Configurações')
 root.resizable(0,0)
 canvas = Canvas(root, width=400, height=400)
 canvas.grid(columnspan=5,rowspan=18)
+
+#variavel global para volume
+volume = 0
 
 #definindo as funções
 def onBotVoltar():
@@ -25,6 +29,11 @@ def mouseFora(e):
     botVoltar['background'] = 'black'
     botSalvar['background'] = 'black'
 
+#def getVolValue(val):
+#    volume = float(val)/100
+ #   return volume
+    #pygame.mixer.music.set_volume(float(val)/100)
+
 #criando botões e textos
 botVoltar = Button(root, text='Voltar', font=('Raleway', 10, 'bold'), fg="white", bg="black", borderwidth=0, width=15, command=onBotVoltar)
 botSalvar = Button(root, text='Salvar', font=('Raleway', 10, 'bold'), fg="white", bg="black", borderwidth=0, width=15, command=onBotSalvar)
@@ -33,7 +42,7 @@ labConfig = Label(root, text='Configurações', font=('Raleway', 12, 'bold'), an
 labVolume = Label(root, text='volume', font=('Raleway', 10, 'bold'), anchor='w')
 labAlerta = Label(root, text='alerta', font=('Raleway', 10, 'bold'), anchor='w')
 
-slider = Scale(root, from_=0, to=100, orient='horizontal')
+slider = Scale(root, from_=0, to=100, orient='horizontal') #command=getVolValue)
 
 varUm = IntVar()
 varDois = IntVar()

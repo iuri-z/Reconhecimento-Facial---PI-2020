@@ -7,12 +7,12 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 from imutils.video import VideoStream
 import numpy as np
+import alerta_sonoro
 import argparse
 import imutils
 import time
 import cv2
 import os
-import pygame
 import popUpMessage
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
@@ -143,10 +143,8 @@ while True:
 		
 		#Implementando o alerta sonoro
 		if label == "Mask" and tempoAtual > tempo: 
-			pygame.mixer.init() #aqui é onde inicializa o mixer
-			pygame.mixer.music.load("AlertaSonoro.mp3")
-			pygame.mixer.music.play(loops = 0)
-			#
+			alerta_sonoro.getSound()
+			#conclusão do mecanismo de intervalo de tempo do alerta
 			congelaTempo = False
 		
 		# include the probability in the label
