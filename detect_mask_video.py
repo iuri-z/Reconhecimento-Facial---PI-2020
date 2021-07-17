@@ -104,54 +104,48 @@ print("[INFO] starting video stream...")
 vs = VideoStream(src=0).start()
 time.sleep(2.0)
 
-#variavel auxiliar para congelar o tempo
+# Variavel auxiliar para congelar o tempo
 congelaTempo = False
 
-#Chamamos a mensagem
+# Chamamos a mensagem
 popUpMessage.callme()
 
 # loop over the frames from the video stream
 while True:
 
-	#Mecanismo para adicionar tempo entre cada alerta sonoro
+	# Mecanismo para adicionar tempo entre cada alerta sonoro
 	if not congelaTempo:
 		tempo = time.time() + 3
 		congelaTempo = True
 
-	# grab the frame from the threaded video stream and resize it
-	# to have a maximum width of 400 pixels
+	# grab the frame from the threaded video stream and resize it to have a maximum width of 720 pixels
 	frame = vs.read()
 	frame = imutils.resize(frame, width=720)
 
-	# detect faces in the frame and determine if they are wearing a
-	# face mask or not
+	# detect faces in the frame and determine if they are wearing a face mask or not
 	(locs, preds) = detect_and_predict_mask(frame, faceNet, maskNet)
 
-	# loop over the detected face locations and their corresponding
-	# locations
+	# loop over the detected face locations and their corresponding locations
 	for (box, pred) in zip(locs, preds):
 		# unpack the bounding box and predictions
 		(startX, startY, endX, endY) = box
 		(mask, withoutMask) = pred
 
-		# determine the class label and color we'll use to draw
-		# the bounding box and text
+		# determine the class label and color we'll use to draw the bounding box and text
 		label = "Mask" if mask > withoutMask else "No Mask"
 		color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
 		
 		tempoAtual = time.time()
 		
-		#Implementando o alerta sonoro
+		# Implementando o alerta sonoro
 		if label == "Mask" and tempoAtual > tempo: 
-			alerta_sonoro.getSound()
-			#conclusão do mecanismo de intervalo de tempo do alerta
+			alerta_sonoro.getAlerta()
 			congelaTempo = False
 		
 		# include the probability in the label
 		label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
 
-		# display the label and bounding box rectangle on the output
-		# frame
+		# display the label and bounding box rectangle on the output frame
 		cv2.putText(frame, label, (startX, startY - 10),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
 		cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)

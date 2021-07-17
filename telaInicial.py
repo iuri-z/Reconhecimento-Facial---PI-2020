@@ -2,18 +2,19 @@
 from tkinter import *
 import os
 from PIL import ImageTk, Image
+import alerta_sonoro
 
-#Criando e configurando a tela
+# Criando e configurando a tela
 root = Tk(className=' Tela Inicial')
 root.resizable(0,0)
 
 canvas = Canvas(root, width=600, height=600)
 canvas.grid(columnspan=5,rowspan=16)
 
-icon = PhotoImage(file='Imagens/logoPI_v5.png')
+icon = PhotoImage(file='imagens/logoPI_v5.png')
 root.iconphoto(False, icon)
 
-#Criando as funções para cada botão
+# Criando as funções para cada botão
 def onBotIniciar():
     os.system('python detect_mask_video.py')
 
@@ -23,33 +24,36 @@ def onBotConfig():
 def onBotSair():
     quit()
 
-#Criando funções para o botão mudar de cor quando o mouse passar em cima
+# Criando funções para o botão quando o mouse passar em cima
 def mouseEmcimaA(e):
     bot1['background'] = 'gray'
+    alerta_sonoro.getSomMouseOn()
 
 def mouseEmcimaB(e):
     bot2['background'] = 'gray'
+    alerta_sonoro.getSomMouseOn()
 
 def mouseEmcimaC(e):
-    bot3['background'] = 'gray'
+    bot3['background'] = 'red'
+    alerta_sonoro.getSomMouseOn()
 
 def mouseFora(e):
     bot1['background'] = 'black'
     bot2['background'] = 'black'
     bot3['background'] = 'black'
 
-#Criando os botões 'Iniciar', 'Configurações' e 'Sair'
+# Criando os botões 'Iniciar', 'Configurações' e 'Sair'
 bot1 = Button(root, text="Iniciar", borderwidth=0, height=2, width=15, fg="white", bg="black", font=('Raleway', 10, 'bold'), command=onBotIniciar) 
 bot2 = Button(root, text="Configurações", borderwidth=0, height=2, width=15, fg="white", bg="black", font=('Raleway', 10, 'bold'), command=onBotConfig) 
 bot3 = Button(root, text="Sair", borderwidth=0, height=2, width=15, fg="white", bg="black", font=('Raleway', 10, 'bold'), command=onBotSair)
 
-#Inserindo a logo
-img_logo = Image.open("Imagens/logoPI_v6.png")
+# Inserindo a logo
+img_logo = Image.open("imagens/logoPI_v6.png")
 resize_logo = img_logo.resize((300,300), Image.ANTIALIAS)
 get_logo = ImageTk.PhotoImage(resize_logo)
 logo = Label(root, image=get_logo)
 
-#Posicionando o necessário na tela
+# Posicionando o necessário na tela
 logo.grid(row=3,column=2)
 
 bot1.grid(row=7, column=2)
@@ -64,5 +68,5 @@ bot1.bind("<Leave>", mouseFora)
 bot2.bind("<Leave>", mouseFora)
 bot3.bind("<Leave>", mouseFora)
 
-#Rodando o software
+# Rodando o software
 root.mainloop()
