@@ -3,7 +3,9 @@ from tkinter import *
 import os
 from PIL import ImageTk, Image
 import alerta_sonoro
+from colour import Color
 
+redd = Color('#ff0051')
 # Criando e configurando a tela
 root = Tk(className=' Tela Inicial')
 root.resizable(0,0)
@@ -34,7 +36,7 @@ def mouseEmcimaB(e):
     alerta_sonoro.getSomMouseOn()
 
 def mouseEmcimaC(e):
-    bot3['background'] = 'red'
+    bot3['background'] = redd
     alerta_sonoro.getSomMouseOn()
 
 def mouseFora(e):
