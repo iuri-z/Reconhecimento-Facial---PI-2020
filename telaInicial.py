@@ -6,7 +6,8 @@ import alerta_sonoro
 import popUpMessage
 import os
 
-red = Color('#ff0051')
+red = Color('#6b0000')
+
 # Criando e configurando a tela
 root = Tk(className=' Tela Inicial')
 root.resizable(0,0)

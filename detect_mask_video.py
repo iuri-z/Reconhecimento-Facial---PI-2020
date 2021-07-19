@@ -1,7 +1,7 @@
 # USAGE
 # python detect_mask_video.py
 
-# import the necessary packages
+# importando os pacotes necessarios
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
@@ -15,23 +15,21 @@ import cv2
 import os
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
-	# grab the dimensions of the frame and then construct a blob
-	# from it
-	(h, w) = frame.shape[:2]
-	blob = cv2.dnn.blobFromImage(frame, 1.0, (300, 300),
-		(104.0, 177.0, 123.0))
+	# coleta as dimensões do fram e constroi um blob a partir disso
+	(h, w) = frame.shape[:2]	#altura e largura, respectivamente, em pixels
+	blob = cv2.dnn.blobFromImage(frame, 1.0, (300, 300), (104.0, 177.0, 123.0))
 
 	# pass the blob through the network and obtain the face detections
 	faceNet.setInput(blob)
 	detections = faceNet.forward()
 
-	# initialize our list of faces, their corresponding locations,
-	# and the list of predictions from our face mask network
+	# inicializa as listas de rostos, suas localizacoes correspondentes
+	# e a lista de previsões da nossa rede de máscaras
 	faces = []
 	locs = []
 	preds = []
 
-	# loop over the detections
+	# loop sobre as detecções
 	for i in range(0, detections.shape[2]):
 		# extract the confidence (i.e., probability) associated with
 		# the detection
@@ -63,7 +61,7 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 			faces.append(face)
 			locs.append((startX, startY, endX, endY))
 
-	# only make a predictions if at least one face was detected
+	# faz a previsao apenas se pelo menos um rosto for detectado
 	if len(faces) > 0:
 		# for faster inference we'll make batch predictions on *all*
 		# faces at the same time rather than one-by-one predictions

@@ -1,4 +1,4 @@
 import pymsgbox
 
 def callme():
-	pymsgbox.alert('Aperte a tecla Q para sair.', 'Leia aqui em baixo')
+	pymsgbox.alert('Aperte a tecla Q para sair.', 'Atenção!')
