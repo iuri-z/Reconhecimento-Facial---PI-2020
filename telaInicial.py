@@ -1,10 +1,10 @@
 # -- coding: utf-8 --
-from tkinter import *
-import os
 from PIL import ImageTk, Image
-import alerta_sonoro
 from colour import Color
+from tkinter import *
+import alerta_sonoro
 import popUpMessage
+import os
 
 red = Color('#ff0051')
 # Criando e configurando a tela

@@ -13,7 +13,6 @@ import imutils
 import time
 import cv2
 import os
-#import popUpMessage
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
 	# grab the dimensions of the frame and then construct a blob
@@ -106,9 +105,6 @@ time.sleep(2.0)
 
 # Variavel auxiliar para congelar o tempo
 congelaTempo = False
-
-# Chamamos a mensagem
-#popUpMessage.callme()
 
 # loop over the frames from the video stream
 while True:

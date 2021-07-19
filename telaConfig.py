@@ -1,8 +1,8 @@
 # -- coding: utf-8 --
 from tkinter import *
-import os
-import pygame
 import alerta_sonoro
+import pygame
+import os
 
 #criando a tela
 root = Tk(className=' Configurações')
