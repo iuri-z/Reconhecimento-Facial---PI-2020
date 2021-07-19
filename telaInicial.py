@@ -1,7 +1,7 @@
 # -- coding: utf-8 --
+from tkinter import *
 from PIL import ImageTk, Image
 from colour import Color
-from tkinter import *
 import alerta_sonoro
 import popUpMessage
 import os

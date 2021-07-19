@@ -12,6 +12,6 @@ def getAlerta():
 # Som para quando a pessoa passa o mouse emcima de algum botão
 def getSomMouseOn():
 	pygame.mixer.init()
-	pygame.mixer.music.set_volume(0.03)
+	pygame.mixer.music.set_volume(0.2)
 	pygame.mixer.music.load("audios/alerta_click.mp3")
 	pygame.mixer.music.play(loops = 0)
