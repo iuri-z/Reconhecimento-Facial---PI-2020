@@ -4,6 +4,7 @@ import os
 from PIL import ImageTk, Image
 import alerta_sonoro
 from colour import Color
+import popUpMessage
 
 red = Color('#ff0051')
 # Criando e configurando a tela
@@ -18,6 +19,7 @@ root.iconphoto(False, icon)
 
 # Criando as funções para cada botão
 def onBotIniciar():
+    popUpMessage.callme()
     os.system('python detect_mask_video.py')
 
 def onBotConfig():

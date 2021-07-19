@@ -2,6 +2,7 @@
 from tkinter import *
 import os
 import pygame
+import alerta_sonoro
 
 #criando a tela
 root = Tk(className=' Configurações')
@@ -29,9 +30,12 @@ def mouseFora(e):
     botVoltar['background'] = 'black'
     botSalvar['background'] = 'black'
 
+#def getSliderValue():
+    #alerta_sonoro.getAlerta(x) = slider.get()
+
 #def getVolValue(val):
-#    volume = float(val)/100
- #   return volume
+    #volume = float(val)/100
+    #return volume
     #pygame.mixer.music.set_volume(float(val)/100)
 
 #criando botões e textos
