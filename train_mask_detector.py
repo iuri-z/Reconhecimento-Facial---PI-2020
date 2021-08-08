@@ -1,7 +1,7 @@
-# USAGE
+# USO
 # python train_mask_detector.py --dataset dataset
 
-# import the necessary packages
+# importe os pacotes necessários
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.layers import AveragePooling2D
@@ -24,7 +24,7 @@ import numpy as np
 import argparse
 import os
 
-# construct the argument parser and parse the arguments
+# construir o analisador de argumentos e analisar os argumentos
 ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--dataset", required=True,
 	help="path to input dataset")
@@ -35,48 +35,47 @@ ap.add_argument("-m", "--model", type=str,
 	help="path to output face mask detector model")
 args = vars(ap.parse_args())
 
-# initialize the initial learning rate, number of epochs to train for,
-# and batch size
+# inicializar a taxa de aprendizagem inicial, número de épocas para treinar,
+# e tamanho do lote
 INIT_LR = 1e-4
 EPOCHS = 20
 BS = 32
 
-# grab the list of images in our dataset directory, then initialize
-# the list of data (i.e., images) and class images
+# pegue a lista de imagens em nosso diretório de conjunto de dados e inicialize
+# a lista de dados (ou seja, imagens) e imagens da classe
 print("[INFO] loading images...")
 imagePaths = list(paths.list_images(args["dataset"]))
 data = []
 labels = []
 
-# loop over the image paths
+# loop nos caminhos da imagem
+
 for imagePath in imagePaths:
-	# extract the class label from the filename
+	# extrai o rótulo da classe do nome do arquivo
 	label = imagePath.split(os.path.sep)[-2]
 
-	# load the input image (224x224) and preprocess it
+	# carregue a imagem de entrada (224x224) e pré-processe-a
 	image = load_img(imagePath, target_size=(224, 224))
 	image = img_to_array(image)
 	image = preprocess_input(image)
 
-	# update the data and labels lists, respectively
+	# atualiza as listas de dados e rótulos, respectivamente
 	data.append(image)
 	labels.append(label)
-
-# convert the data and labels to NumPy arrays
+	
+# converter os dados e rótulos em matrizes NumPy
 data = np.array(data, dtype="float32")
 labels = np.array(labels)
 
-# perform one-hot encoding on the labels
-lb = LabelBinarizer()
+# realizar codificação one-hot nas etiquetaslb = LabelBinarizer()
 labels = lb.fit_transform(labels)
 labels = to_categorical(labels)
-
-# partition the data into training and testing splits using 75% of
-# the data for training and the remaining 25% for testing
+# particionar os dados em divisões de treinamento e teste usando 75% de
+# os dados para treinamento e os 25% restantes para teste
 (trainX, testX, trainY, testY) = train_test_split(data, labels,
 	test_size=0.20, stratify=labels, random_state=42)
 
-# construct the training image generator for data augmentation
+# construir o gerador de imagens de treinamento para aumento de dados
 aug = ImageDataGenerator(
 	rotation_range=20,
 	zoom_range=0.15,
@@ -86,13 +85,13 @@ aug = ImageDataGenerator(
 	horizontal_flip=True,
 	fill_mode="nearest")
 
-# load the MobileNetV2 network, ensuring the head FC layer sets are
-# left off
+# carregue a rede MobileNetV2, garantindo que os conjuntos de camadas FC principais sejam
+# deixado de fora
 baseModel = MobileNetV2(weights="imagenet", include_top=False,
 	input_tensor=Input(shape=(224, 224, 3)))
 
-# construct the head of the model that will be placed on top of the
-# the base model
+# construir a cabeça do modelo que será colocado no topo do
+# o modelo básico
 headModel = baseModel.output
 headModel = AveragePooling2D(pool_size=(7, 7))(headModel)
 headModel = Flatten(name="flatten")(headModel)
@@ -100,22 +99,22 @@ headModel = Dense(128, activation="relu")(headModel)
 headModel = Dropout(0.5)(headModel)
 headModel = Dense(2, activation="softmax")(headModel)
 
-# place the head FC model on top of the base model (this will become
-# the actual model we will train)
+# coloque o modelo do cabeçote FC em cima do modelo básico (ele se tornará
+# o modelo real que iremos treinar)
 model = Model(inputs=baseModel.input, outputs=headModel)
 
-# loop over all layers in the base model and freeze them so they will
-# *not* be updated during the first training process
+# faz um loop sobre todas as camadas do modelo base e congela-as para que elas
+# * não * ser atualizado durante o primeiro processo de treinamento
 for layer in baseModel.layers:
 	layer.trainable = False
 
-# compile our model
+# compilar nosso modelo
 print("[INFO] compiling model...")
 opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
 model.compile(loss="binary_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
 
-# train the head of the network
+# treinar o chefe da rede
 print("[INFO] training head...")
 H = model.fit(
 	aug.flow(trainX, trainY, batch_size=BS),
@@ -124,24 +123,22 @@ H = model.fit(
 	validation_steps=len(testX) // BS,
 	epochs=EPOCHS)
 
-# make predictions on the testing set
+# fazer previsões no conjunto de teste
 print("[INFO] evaluating network...")
 predIdxs = model.predict(testX, batch_size=BS)
 
-# for each image in the testing set we need to find the index of the
-# label with corresponding largest predicted probability
+# para cada imagem no conjunto de teste, precisamos encontrar o índice do
+# rótulo com a maior probabilidade prevista correspondente
 predIdxs = np.argmax(predIdxs, axis=1)
 
-# show a nicely formatted classification report
+# mostra um relatório de classificação bem formatado
 print(classification_report(testY.argmax(axis=1), predIdxs,
 	target_names=lb.classes_))
-
-# serialize the model to disk
+# serializar o modelo para o disco
 print("[INFO] saving mask detector model...")
 model.save(args["model"], save_format="h5")
 
-# plot the training loss and accuracy
-N = EPOCHS
+# traçar a perda e a precisão do treinamentoN = EPOCHS
 plt.style.use("ggplot")
 plt.figure()
 plt.plot(np.arange(0, N), H.history["loss"], label="train_loss")
