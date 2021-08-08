@@ -46,7 +46,8 @@ python telaInicial.py
 | Estilização do menu | 23.06.2021 | ✔ |
 ```
 
-🔑 Resultados
+## 🔑 Resultados
+```
 
 
 
