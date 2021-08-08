@@ -45,7 +45,8 @@ python telaInicial.py
 | Integração do FaceMaskDetection ao menu | 04.06.2021 | ✔ |
 | Estilização do menu | 23.06.2021 | ✔ |
 ```
-## 🔑 Resultados
+
+🔑 Resultados
 
 
 
