@@ -19,45 +19,40 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 	(h, w) = frame.shape[:2]	#altura e largura, respectivamente, em pixels
 	blob = cv2.dnn.blobFromImage(frame, 1.0, (300, 300), (104.0, 177.0, 123.0))
 
-	# passe o blob pela rede e obtenha as detecções de rosto
+	# passa o blob pela rede e obtem a detecção facial
 	faceNet.setInput(blob)
 	detections = faceNet.forward()
 
 	# inicializa as listas de rostos, suas localizacoes correspondentes
-	# e a lista de previsões da nossa rede de máscaras
+	# e a lista de previsões da nossa rede de máscara
 	faces = []
 	locs = []
 	preds = []
 
 	# loop sobre as detecções
 	for i in range(0, detections.shape[2]):
-		# extrair a confiança (ou seja, probabilidade) associada com
+		# extrai a confiança (ou seja, probabilidade) associada com
                 # a detecção
 		confidence = detections[0, 0, i, 2]
 
-		# filtre as detecções fracas, garantindo que a confiança é
-		# maior do que a confiança mínima
+		# filtre as detecções fracas, isso garante que o programa consiga detectar o rosto da pessoa
 		if confidence > args["confidence"]:
-			# calcule as coordenadas (x, y) da caixa delimitadora para
-			# o objeto
+			# calcule as coordenadas (x, y) do retângulo verde/vermelho presente no programa
 			box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
 			(startX, startY, endX, endY) = box.astype("int")
 
-			# certifique-se de que as caixas delimitadoras estejam dentro das dimensões de
-			# a moldura
+			# faz com que o retângulo sempre esteja dentro das margens da tela
 			(startX, startY) = (max(0, startX), max(0, startY))
 			(endX, endY) = (min(w - 1, endX), min(h - 1, endY))
 
-			## extrair o ROI do rosto, convertê-lo do canal BGR para RGB
-			# ordenação, redimensione-o para 224x224 e pré-processe-o
+			# extrai o ROI do rosto, converte ele do canal BGR para RGB, encaminha, redimensiona a imagem para 224x224 e faz o pré-processamento
 			face = frame[startY:endY, startX:endX]
 			face = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
 			face = cv2.resize(face, (224, 224))
 			face = img_to_array(face)
 			face = preprocess_input(face)
 
-			# adicione a face e as caixas delimitadoras aos seus respectivos
-			# listas
+			# adicione a faces e o retângulos a suas respectivas listas
 			faces.append(face)
 			locs.append((startX, startY, endX, endY))
 
@@ -69,8 +64,7 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 		faces = np.array(faces, dtype="float32")
 		preds = maskNet.predict(faces, batch_size=32)
 
-	# retorna uma 2-tupla das localizações das faces e seus correspondentes
-	# Localizações
+	# retorna uma 2-tuple das localizações das faces e suas localizações correspondentes
 	return (locs, preds)
 
 # constrói o analisador de argumentos e analisa os argumentos
@@ -107,12 +101,13 @@ congelaTempo = False
 # faz um loop sobre os frames do stream de vídeo
 while True:
 
-	# Mecanismo para adicionar tempo entre cada alerta sonoro
+	# Mecanismo para adicionar o tempo entre cada alerta sonoro
 	if not congelaTempo:
+		# O alerta ocorre a cada três segundos
 		tempo = time.time() + 3
 		congelaTempo = True
 
-	# pegue o quadro do stream de vídeo encadeado e redimensione-o para ter uma largura máxima de 720 pixels
+	# pegue o frame do stream de vídeo redimensione-o para ter uma largura máxima de 720 pixels
 	frame = vs.read()
 	frame = imutils.resize(frame, width=720)
 
@@ -121,14 +116,17 @@ while True:
 
 	# loop nos locais de rosto detectados e seus locais correspondentes	
 	for (box, pred) in zip(locs, preds):
-		# desempacote a caixa delimitadora e as previsões
+		# desempacota o retângulo e a predictions
 		(startX, startY, endX, endY) = box
 		(mask, withoutMask) = pred
 		
-		# determina o rótulo da classe e a cor que usaremos para desenhar a caixa delimitadora e o texto
+		# determina qual label e cor será apresentada
+		# caso a pessoa esteja de máscara o retângulo será verde e a mensagem será "Mask"
+		# caso a pessoa não estaja de máscara o retângulo será vermelho e mensagem será "No mask"
 		label = "Mask" if mask > withoutMask else "No Mask"
 		color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
 		
+		# chama a biblioteca time
 		tempoAtual = time.time()
 		
 		# Implementando o alerta sonoro
@@ -136,22 +134,22 @@ while True:
 			alerta_sonoro.getAlerta()
 			congelaTempo = False
 		
-		# inclui a probabilidade no rótulo
+		# inclui a probabilidade de acerto no label "Mask" ou "No mask"
 		label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
 
-		# exibe o rótulo e o retângulo da caixa delimitadora no quadro de saída
+		# exibe o label e o retângulo no frame
 		cv2.putText(frame, label, (startX, startY - 10),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
 		cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)
 
-	# mostra o quadro de saída
+	# mostra o frame
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1) & 0xFF
 
-	# se a tecla `q` foi pressionada, interrompa o loop
+	# se a tecla "q" foi pressionada, o loop acaba
 	if key == ord("q"):
 		break
 	
-# faça uma pequena limpeza
+# fecha o programa
 cv2.destroyAllWindows()
 vs.stop()
