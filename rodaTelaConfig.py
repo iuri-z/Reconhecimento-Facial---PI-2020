@@ -1,0 +1,3 @@
+import telaConfig
+
+telaConfig.roda()

@@ -2,9 +2,10 @@
 from tkinter import *
 from PIL import ImageTk, Image
 from colour import Color
-import alerta_sonoro
+#import alerta_sonoro
 import popUpMessage
 import os
+import pygame
 
 red = Color('#6b0000')
 
@@ -24,7 +25,7 @@ def onBotIniciar():
     os.system('python detect_mask_video.py')
 
 def onBotConfig():
-    os.system('python telaConfig.py')
+    os.system('python rodaTelaConfig.py')
 
 def onBotSair():
     quit()
@@ -32,20 +33,26 @@ def onBotSair():
 # Criando funções para o botão quando o mouse passar em cima
 def mouseEmcimaA(e):
     bot1['background'] = 'gray'
-    alerta_sonoro.getSomMouseOn()
+    getSomMouseOn()
 
 def mouseEmcimaB(e):
     bot2['background'] = 'gray'
-    alerta_sonoro.getSomMouseOn()
+    getSomMouseOn()
 
 def mouseEmcimaC(e):
     bot3['background'] = red
-    alerta_sonoro.getSomMouseOn()
+    getSomMouseOn()
 
 def mouseFora(e):
     bot1['background'] = 'black'
     bot2['background'] = 'black'
     bot3['background'] = 'black'
+
+def getSomMouseOn():
+	pygame.mixer.init()
+	pygame.mixer.music.set_volume(0.2)
+	pygame.mixer.music.load("audios/alerta_click.mp3")
+	pygame.mixer.music.play(loops = 0)
 
 # Criando os botões 'Iniciar', 'Configurações' e 'Sair'
 bot1 = Button(root, text="Iniciar", borderwidth=0, height=2, width=15, fg="white", bg="black", font=('Raleway', 10, 'bold'), command=onBotIniciar) 

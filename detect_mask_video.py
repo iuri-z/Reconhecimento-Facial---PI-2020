@@ -14,8 +14,13 @@ import time
 import cv2
 import os
 
+#root = Tk(className=' Configurações')
+#root.resizable(0,0)
+#canvas = Canvas(root, width=720, height=720)
+#canvas.grid(columnspan=1,rowspan=2)
+
 def detect_and_predict_mask(frame, faceNet, maskNet):
-	# coleta as dimensões do fram e constroi um blob a partir disso
+	# coleta as dimensões do frame e constroi um blob a partir disso
 	(h, w) = frame.shape[:2]	#altura e largura, respectivamente, em pixels
 	blob = cv2.dnn.blobFromImage(frame, 1.0, (300, 300), (104.0, 177.0, 123.0))
 
@@ -145,6 +150,7 @@ while True:
 		cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)
 
 	# show the output frame
+	#slider = Scale(root, from_=0, to=100, orient='horizontal') #command=getVolValue)
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1) & 0xFF
 
