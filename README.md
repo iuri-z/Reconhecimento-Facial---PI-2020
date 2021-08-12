@@ -62,3 +62,5 @@ python telaInicial.py
 
 ## 🔑 Resultados
 > O projeto foi validado pelos alunos ao ser aplicado em dois distintos estabelecimentos comerciais. 
+> Após isso foi aplicado um questionário para cada pessoa que usou o software. Totalizou-se 15 respondentes do questionário.
+> <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/graf_quest_1.png"/>
