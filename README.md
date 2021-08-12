@@ -1,6 +1,15 @@
 # ***Reconhecimento Facial***
 
 ## 📕 Descrição
+> Devido a pandemia do Covid-19, tornou-se essencial o uso de máscara para proteção individual e coletiva. 
+> 'Reconhecimento Facial no uso de Equipamentos Faciais' é um programa que alia tecnologias de redes neurais
+(fazendo uso da biblioteca Open Source Keras) com inteligência artificial, a fim de detectar máscaras em 
+rostos humanos. Sendo assim, o programa tem como finalidade monitorar a entrada de pessoas em determinados 
+estabelecientos que necessitem do uso obrigatório da máscara. O projeto foi elaborado por alunos do Instituto 
+Federal de Santa Catarina, Câmpus Gaspar, contemplando o Projeto Integrador do Curso Técnico Integrado de 
+Informática. Com uma biblioteca GUI nativa do Python, Tkinter, foi criada uma interface gráfica na qual é possível
+o usuário iniciar o programa e modificar o volume de um alerta sonoro integrado ao programa.
+
 
 ## ✍ Autores
 > Adriel Antunes  
@@ -14,8 +23,11 @@
 ## ✏ Técnologias Utilizadas 
 |||
 | :------- | :--- |
+| TensorFlow | https://www.tensorflow.org/ |  
+| OpenCV | https://opencv.org/ | 
 | Python | https://www.python.org/ |
-| OpenCV | https://opencv.org/ |  
+| Keras | https://keras.io/ |  
+
 
 
 ## 📝 Instalação e Funcionamento
@@ -44,5 +56,9 @@ python telaInicial.py
 | Implementação de um menu | 12.05.2021 | ✔ |
 | Integração do FaceMaskDetection ao menu | 04.06.2021 | ✔ |
 | Estilização do menu | 23.06.2021 | ✔ |
+| Implementação do alerta sonoro | 16.07.2021 | ✔ |
+| Implementação da barra de volume | 11.08.2021 | ✔ |
+
 
 ## 🔑 Resultados
+> O projeto foi validado pelos alunos ao ser aplicado em dois distintos estabelecimentos comerciais. 
