@@ -9,5 +9,4 @@ def getAlerta():
 	pygame.mixer.init()
 	pygame.mixer.music.set_volume(vol/100)
 	pygame.mixer.music.load("audios/alerta_sonoro.mp3")
-	pygame.mixer.music.play(loops = 0) 	#eh necessario sempre setar a quantidade de loops
-									   	#neste caso zero, para nao haver repetições
+	pygame.mixer.music.play(loops = 0) 			#eh necessario sempre setar a quantidade de loops. Neste caso é zero, para nao haver repetições
