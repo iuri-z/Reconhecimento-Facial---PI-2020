@@ -2,17 +2,18 @@
 # python detect_mask_video.py
 
 # importando os pacotes necessarios
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-from tensorflow.keras.preprocessing.image import img_to_array
-from tensorflow.keras.models import load_model
-from imutils.video import VideoStream
-import numpy as np
-import alerta_sonoro
-import argparse
-import imutils
-import time
-import cv2
-import os
+# keras eh a biblioteca de rede neural aliada ao tensorflow
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input # suporta entrada de imagens de dimensao >=32x32
+from tensorflow.keras.preprocessing.image import img_to_array # transforma uma imagem PIL em um array numpy de float32
+from tensorflow.keras.models import load_model # irah servir para treinar os modelos de mascara
+from imutils.video import VideoStream # suporta entrada de transmissao do video 
+import numpy as np # biblioteca que realiza calculos em arrays multidimensionais
+import alerta_sonoro # classe criada para chamar funcoes relacionadas ao alerta
+import argparse # usado para facilitar a interacao com a interface command-line
+import imutils # permite executar funcoes basicas de processamento de imagem 
+import time # usado para o comando sleep
+import cv2 # open cv, para visao computacional
+import os # modulo usado para ter acesso a informacoes do sistema operacional da maquina
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
 	# coleta as dimensões do fram e constroi um blob a partir disso
