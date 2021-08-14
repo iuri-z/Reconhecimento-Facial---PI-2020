@@ -23,18 +23,18 @@ o usuário iniciar o programa e modificar o volume de um alerta sonoro integrado
 ## 🚀 Requisitos 
 |||
 | :------- | :--- |
-| Python > 3.0.0 | 
-| TensorFLow 2.5.0 |  
-| Keras 2.4.3 | 
-| Imutiils 0.5.4 |
-| Numpy 1.19.5 | 
-| OpenCV Python 4.5.1 | 
-| Matplotlib 3.4.1 | 
-| Argparse 1.4.0 | 
-| Scipy 1.6.2 | 
-| Scikit-learn 0.24.1 | 
-| Pillow 8.2.0 | 
-| Streamlit 0.79.0 | 
+| Python | 3.0.0 | 
+| TensorFLow | 2.5.0 |  
+| Keras | 2.4.3 | 
+| Imutiils | 0.5.4 |
+| Numpy | 1.19.5 | 
+| OpenCV Python | 4.5.1 | 
+| Matplotlib | 3.4.1 | 
+| Argparse | 1.4.0 | 
+| Scipy | 1.6.2 | 
+| Scikit-learn | 0.24.1 | 
+| Pillow | 8.2.0 | 
+| Streamlit | 0.79.0 | 
 
 ## ✏ Técnologias Utilizadas 
 |||
