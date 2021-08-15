@@ -7,7 +7,6 @@ import pygame # responsavel pela reproducao e edicao de arquivos de som
 import os
 
 red = Color('#6b0000')
-green = Color('#47a637')
 
 # Criando e configurando a tela
 root = Tk(className=' Tela Inicial')
@@ -31,7 +30,7 @@ def onBotSair():
     quit()
 
 def onBotSobre():
-    os.system('python telaSobre.py')
+    os.system('python tela_sobre.py')
 
 # Criando funções para o botão quando o mouse passar em cima
 def mouseEmcimaA(e):
@@ -46,15 +45,10 @@ def mouseEmcimaC(e):
     bot3['background'] = red
     getSomMouseOn()
 
-def mouseEmcimaD(e):
-    bot4['background'] = green
-    getSomMouseOn()
-
 def mouseFora(e):
     bot1['background'] = 'black'
     bot2['background'] = 'black'
-    bot3['background'] = 'black'    
-    bot4['background'] = 'black'
+    bot3['background'] = 'black'
 
 def getSomMouseOn():
     pygame.mixer.init()
@@ -85,12 +79,10 @@ bot4.grid(row=10, column=2)
 bot1.bind("<Enter>", mouseEmcimaA)
 bot2.bind("<Enter>", mouseEmcimaB)
 bot3.bind("<Enter>", mouseEmcimaC)
-bot4.bind("<Enter>", mouseEmcimaD)
 
 bot1.bind("<Leave>", mouseFora)
 bot2.bind("<Leave>", mouseFora)
 bot3.bind("<Leave>", mouseFora)
-bot4.bind("<Leave>", mouseFora)
 
 # Rodando o software
 root.mainloop()
