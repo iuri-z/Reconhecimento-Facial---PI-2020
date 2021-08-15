@@ -77,5 +77,5 @@ python telaInicial.py
 
 
 ## 🔑 Resultados
-> O projeto foi validado pelos alunos ao ser aplicado em dois distintos estabelecimentos comerciais. 
+> O projeto foi validado pelos alunos ao ser aplicado em três distintos estabelecimentos comerciais. 
 > Após isso foi aplicado um questionário para cada pessoa que usou o software. Totalizou-se 15 respondentes do questionário.
