@@ -26,7 +26,7 @@ o usuário iniciar o programa e modificar o volume de um alerta sonoro integrado
 ## 🚀 Requisitos 
 |||
 | :------- | :--- |
-| Python | 3.0.0 | 
+| Python | 3.9.0 | 
 | TensorFLow | 2.5.0 |  
 | Keras | 2.4.3 | 
 | Imutiils | 0.5.4 |
