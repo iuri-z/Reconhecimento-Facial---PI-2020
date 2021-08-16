@@ -12,13 +12,16 @@ o usuário iniciar o programa e modificar o volume de um alerta sonoro integrado
 
 
 ## ✍ Autores
+> **Face Mask Detection**  
+> Chandrika Deb  
+>
+><br/>
+>
+> **Projeto Reconhecimento Facial**  
 > Adriel Antunes  
 > Iuri Zimmermann  
 > Matheus Sena  
 > Oliver Alexander
-
-## 📖 Prévia
-> <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/cap_1.png"/>
 
 ## 🚀 Requisitos 
 |||
@@ -78,9 +81,19 @@ python telaInicial.py
 
 ## 🔑 Resultados
 > O projeto foi validado pelos alunos ao ser aplicado em três distintos estabelecimentos comerciais. 
-> Após isso foi aplicado um questionário para cada pessoa que usou o software. Totalizou-se 15 respondentes do questionário.       
-> <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_principal.png" width=400/>
-> <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_sobre.png" width=380/>
-> <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_config.png" width=400/>
-> <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_com_mask.png" width=300/>
-> <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_sem_mask.png" width=300/>
+> Após isso foi aplicado um questionário para cada pessoa que usou o software. Totalizou-se 15 respondentes do questionário.  
+
+**Telas do menu**
+<div>  
+  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_principal.png" width=269/>
+  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_sobre.png" width=260/>
+  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_config.png" width=400/>  
+</div>
+  
+<br/>  
+  
+**Software de reconhecimento facial**
+<div> 
+  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_com_mask.png" width=468/>
+  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_sem_mask.png" width=468/>
+</div>
