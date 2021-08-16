@@ -2,7 +2,7 @@
 
 ## 📕 Descrição
 > Devido a pandemia do Covid-19, tornou-se essencial o uso de máscara para proteção individual e coletiva. 
-> 'Reconhecimento Facial no uso de Equipamentos Faciais' é um programa que alia tecnologias de redes neurais
+'Reconhecimento Facial no uso de Equipamentos Faciais' é um programa que alia tecnologias de redes neurais
 (fazendo uso da biblioteca Open Source Keras) com inteligência artificial, a fim de detectar máscaras em 
 rostos humanos. Sendo assim, o programa tem como finalidade monitorar a entrada de pessoas em determinados 
 estabelecientos que necessitem do uso obrigatório da máscara. O projeto foi elaborado por alunos do Instituto 
@@ -24,20 +24,52 @@ o usuário iniciar o programa e modificar o volume de um alerta sonoro integrado
 > Oliver Alexander
 
 ## 🚀 Requisitos 
-|||
-| :------- | :--- |
-| Python | 3.9.0 | 
-| TensorFLow | 2.5.0 |  
-| Keras | 2.4.3 | 
+O arquivo *requisitos.txt* já contem todas as bibliotecas necessárias para o funcionamento do programa.  
+Você pode a acessar clicando [aqui](https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/requisitos.txt)  
+
+<br/>
+
+**Bibliotecas e suas versões**
+<table>
+<tr>
+  
+<td>
+
+|Nome |Versão |
+|:--|:--|
+| Python	| 3.9.0 |
+| TensorFLow| 2.5.0 |
+| Keras	| 2.4.3 |
 | Imutiils | 0.5.4 |
-| Numpy | 1.19.5 | 
-| OpenCV Python | 4.5.1 | 
-| Matplotlib | 3.4.1 | 
-| Argparse | 1.4.0 | 
-| Scipy | 1.6.2 | 
-| Scikit-learn | 0.24.1 | 
-| Pillow | 8.2.0 | 
-| Streamlit | 0.79.0 | 
+| Numpy | 1.19.5 |
+
+</td>
+  
+  
+<td>
+
+|Nome |Versão | 
+|:--|:--|
+| OpenCV Python | 4.5.1 |
+| Matplotlib	| 3.4.1 |
+| Argparse	| 1.4.0 |
+| Scipy | 1.6.2 |
+| Scikit-learn	| 0.24.1 |
+
+</td>
+  
+<td>
+
+|Nome |Versão | 
+|:--|:--|
+| Pillow	| 8.2.0 |
+| Streamlit | 0.79.0 |
+| PyGame | 2.0.1 |
+| Colour | 0.1.5 |
+| PyMsgBox | 1.0.9 |
+
+</td>
+</tr></table>
 
 ## ✏ Técnologias Utilizadas 
 |||
@@ -82,6 +114,8 @@ python telaInicial.py
 ## 🔑 Resultados
 > O projeto foi validado pelos alunos ao ser aplicado em três distintos estabelecimentos comerciais. 
 > Após isso foi aplicado um questionário para cada pessoa que usou o software. Totalizou-se 15 respondentes do questionário.  
+
+<br/>
 
 **Telas do menu**
 <div>  
