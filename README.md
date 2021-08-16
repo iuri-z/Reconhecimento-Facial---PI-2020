@@ -25,7 +25,7 @@ o usuário iniciar o programa e modificar o volume de um alerta sonoro integrado
 
 ## 🚀 Requisitos 
 O arquivo *requisitos.txt* já contem todas as bibliotecas necessárias para o funcionamento do programa.  
-Você pode a acessar clicando [aqui](https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/requisitos.txt)  
+Você pode o acessar clicando [aqui](https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/requisitos.txt)  
 
 <br/>
 
