@@ -85,15 +85,15 @@ python telaInicial.py
 
 **Telas do menu**
 <div>  
-  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_principal.png" width=269/>
-  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_sobre.png" width=260/>
-  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_config.png" width=400/>  
+  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_principal.png" width=201/>
+  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_sobre.png" width=194/>
+  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_config.png" width=300/>  
 </div>
   
 <br/>  
   
 **Software de reconhecimento facial**
 <div> 
-  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_com_mask.png" width=468/>
-  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_sem_mask.png" width=468/>
+  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_com_mask.png" width=268/>
+  <img src="https://github.com/pyOliver/Projeto-Integrador-Reconhecimento-Facial/blob/main/Imagens/tela_sem_mask.png" width=268/>
 </div>
