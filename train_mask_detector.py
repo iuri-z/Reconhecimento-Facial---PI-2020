@@ -49,7 +49,6 @@ data = []
 labels = []
 
 # loop nos caminhos da imagem
-
 for imagePath in imagePaths:
 	# extrai o rótulo da classe do nome do arquivo
 	label = imagePath.split(os.path.sep)[-2]
@@ -67,9 +66,11 @@ for imagePath in imagePaths:
 data = np.array(data, dtype="float32")
 labels = np.array(labels)
 
-# realizar codificação one-hot nas etiquetaslb = LabelBinarizer()
+# realizar codificação one-hot nas etiquetas
+lb = LabelBinarizer()
 labels = lb.fit_transform(labels)
 labels = to_categorical(labels)
+
 # particionar os dados em divisões de treinamento e teste usando 75% de
 # os dados para treinamento e os 25% restantes para teste
 (trainX, testX, trainY, testY) = train_test_split(data, labels,
